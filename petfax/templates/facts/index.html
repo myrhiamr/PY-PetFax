@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetFax</title>
+  <link
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}"
+  />
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center title">Users PetFax</h1>
+    <h2 class="text-center title">See all user submitted Fax!</h2>
+    <div class="row mt-4 justify-content-center">
+      {% for fact in facts %}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Submitted by {{ fact.submitter }}</h5>
+            <p>
+              {{ fact.fact }}
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="mt-4 text-center">
+      <p>
+        We'd love to learn more fun facts!
+        <a href="/facts/new" class="btn btn-secondary">Submit some here</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

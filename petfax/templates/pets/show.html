@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PetFax</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="card shadow">
+        <div class="card-body">
+          <h1 class="card-title text-center">{{ pet.pet_name }}</h1>
+          <div class="jumbotron p-3 mt-3 mb-4 bg-info text-white rounded" style="max-width: 85%; margin: 0 auto;">
+            <p><span style="font-weight: 800;">Did you know?</span><br />{{ pet.pet_fact }}</p>
+          </div>
+          <div class="pets-container text-center">
+            <div class="show-pet mb-4">
+              <img src="{{ pet.pet_photo }}" class="rounded" alt="Photo of {{ pet.pet_name }}"/>
+            </div>
+          </div>
+          <a href="/pets" class="btn btn-secondary mt-3">Go Back</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>l

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetFax</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center title">Welcome to PetFax</h1>
+    <div class="jumbotron p-3 mt-3 mb-4 bg-info">
+      <p>
+        Welcome to PetFax! We are a no-kill shelter dedicated to finding our
+        pets loving homes and educating the public with fun facts.
+      </p>
+    </div>
+    <div class="row mt-4 justify-content-center">
+      {% for pet in pets %}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ pet.pet_name }}</h5>
+            <img src="{{ pet.pet_photo }}" class="card-img-top rounded" alt="Photo of {{ pet.pet_name }}"/>
+            <a href="/pets/{{ pet.pet_id }}" class="btn btn-primary mt-3" >Learn more</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="mt-4 text-center">
+      <p>
+        We'd love to learn more fun facts!
+        <a href="/facts/new" class="btn btn-secondary">Submit some here</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+
